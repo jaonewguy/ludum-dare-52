@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://tileGreen_03.png" type="Texture" id=2]
+[ext_resource path="res://Conveyor.gd" type="Script" id=3]
+[ext_resource path="res://RigidBody2D.tscn" type="PackedScene" id=4]
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 2
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 440, 88 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 42.5, 8 )
+
+[node name="Level" type="Node"]
+
+[node name="RigidBody2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 34.3061, -13 )
+
+[node name="Conveyor" type="StaticBody2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Conveyor"]
+position = Vector2( 107.306, 37 )
+scale = Vector2( 0.193878, 0.189189 )
+texture = SubResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 880, 88 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Conveyor"]
+position = Vector2( 64.8061, 37 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
