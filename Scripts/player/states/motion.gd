@@ -17,3 +17,5 @@ func update_look_direction(direction):
     if direction and owner.look_direction != direction:
         owner.look_direction = direction
         owner.animatedSprite.flip_h = direction.x < 0 # TODO: Sprite starts right, hard-coded to work to flip left and vice-versa
+        owner.attackArea.scale.x *= -1
+        owner.attackArea.constant_linear_velocity *= -1
