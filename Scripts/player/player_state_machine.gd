@@ -14,6 +14,10 @@ func _ready():
         "stagger": stagger,
         "slashAttack": slashAttack,
     }
+    
+    # TODO: Find a way to refactor
+    get_node("../AttackArea/AttackAreaCollision").disabled = true
+    get_node("../AttackArea/AttackAreaCollision").visible = false
 
 
 func _change_state(state_name):
