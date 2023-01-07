@@ -20,8 +20,8 @@ func _change_state(state_name):
     # The base state_machine interface this node extends does most of the work.
     if not _active:
         return
-    if state_name in ["stagger", "jump", "slashAttack"]:
-        states_stack.push_front(states_map[state_name])
+#    if state_name in ["stagger", "jump", "slashAttack"]:
+#        states_stack.push_front(states_map[state_name])
     if state_name == "jump" and current_state == move:
         jump.initialize(move.speed, move.velocity)
     ._change_state(state_name)
