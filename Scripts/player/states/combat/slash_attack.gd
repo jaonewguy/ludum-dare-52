@@ -1,12 +1,11 @@
 extends "res://Scripts/state_machine/state.gd"
 
-#var isAttacking = false
 
 func enter():
+    owner.animatedSprite.animation = "slash_attack"
+        
     get_node("../../AttackArea/AttackAreaCollision").disabled = false
     get_node("../../AttackArea/AttackAreaCollision").visible = true
-    owner.animatedSprite.animation = "slash_attack"
-#    isAttacking = true
 
 
 func _on_animation_finished(_name):
