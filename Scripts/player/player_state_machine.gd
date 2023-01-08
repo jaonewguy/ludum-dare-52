@@ -15,9 +15,10 @@ func _ready():
         "slashAttack": slashAttack,
     }
     
-    # TODO: Find a way to refactor
+    # TODO: Find a way to refactor. Original attempt left player with weird floating bug.
     get_node("../AttackArea/AttackAreaCollision").disabled = true
     get_node("../AttackArea/AttackAreaCollision").visible = false
+    get_node("../AttackArea/AttackAreaCollision/AttackAreaDetect").monitoring = false
 
 
 func _change_state(state_name):
@@ -26,8 +27,8 @@ func _change_state(state_name):
         return
 #    if state_name in ["stagger", "jump", "slashAttack"]:
 #        states_stack.push_front(states_map[state_name])
-    if state_name == "jump" and current_state == move:
-        jump.initialize(move.speed, move.velocity)
+#    if state_name == "jump" and current_state == move:
+#        jump.initialize(move.speed, move.velocity)
     ._change_state(state_name)
 
 
