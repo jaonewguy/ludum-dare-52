@@ -1,3 +1,5 @@
+# From: https://kidscancode.org/godot_recipes/3.x/physics/conveyor_belt/
+
 extends StaticBody2D
 
 export var speed = 50

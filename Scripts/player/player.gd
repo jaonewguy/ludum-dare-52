@@ -15,4 +15,3 @@ var look_direction = Vector2.RIGHT setget set_look_direction
 func set_look_direction(value):
     look_direction = value
     emit_signal("direction_changed", value)
-    print(look_direction)
