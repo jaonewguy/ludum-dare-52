@@ -1,7 +1,16 @@
-# ludum-dare-52
-First game, created during LD52
+# Heartvest - ludum-dare-52 jam
 
-# Credits - free resources used
+## Background
+I shamelessly entered LD52 without any prior game dev experience, and so here we are -- my first game, **Heartvest**.
+
+Only had a few small goals:
+1. Get used to Godot over a weekend
+2. Use one common game design pattern
+3. Submit something finished "enough"
+
+Almost gave up on goal 3, but the hours flew by. Had a lot fun and learned a lot :)
+
+## Credits - free resources used (hopefully didn't forget any)
 -  Music - https://s0lar15.itch.io/manufactory
 -  SoundFX - Hit#11 from https://opengameart.org/content/37-hitspunches
 -  Art 
