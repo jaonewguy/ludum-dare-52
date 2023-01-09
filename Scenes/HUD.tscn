@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/HUD.gd" type="Script" id=1]
+[ext_resource path="res://Assets/KiriFont.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+font_data = ExtResource( 2 )
+
+[node name="HUD" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Docs" type="Label" parent="."]
+margin_left = 125.0
+margin_top = 5.0
+margin_right = 441.0
+margin_bottom = 142.0
+custom_colors/font_color = Color( 0.737255, 0.870588, 0.780392, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Buttons:
+- A to move left
+- D to move right
+- F or mouse left to attack
+- L Shift to run
+
+Enjoy!"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Score" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 167.0
+margin_bottom = 118.0
+text = "0
+"
+uppercase = true
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 186.0
+margin_top = 171.0
+margin_right = 236.0
+margin_bottom = 191.0
+text = "START"
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]

@@ -1,16 +1,22 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+#func game_over():
+#    $ScoreTimer.stop()
+#    $MobTimer.stop()
+#    $HUD.show_game_over()
+#    $DeathSound.play()
+#    $Music.stop()
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-    pass # Replace with function body.
+    get_tree().paused = true
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#    pass
+func new_game():
+    get_tree().paused = false
+#    score = 0
+#    $Player.start($StartPosition.position)
+    $GameTimer.start()
+#    $HUD.update_score(score)
+    $HUD.show_message("Get Ready")
+#    get_tree().call_group("mobs", "queue_free")
+    $BGM.play()

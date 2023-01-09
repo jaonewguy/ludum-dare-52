@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Manufactory.mp3-a73d204057b0126a69eddcac6aa19708.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Manufactory.mp3"
+dest_files=[ "res://.import/Manufactory.mp3-a73d204057b0126a69eddcac6aa19708.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
