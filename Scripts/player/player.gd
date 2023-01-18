@@ -11,6 +11,8 @@ onready var swordHitSound: = $SwordHitSound
 
 var look_direction = Vector2.RIGHT setget set_look_direction
 
+func _ready():
+    Global.g_player_position = self.global_position
 
 func set_look_direction(value):
     look_direction = value

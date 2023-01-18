@@ -102,7 +102,10 @@ position = Vector2( 187, 190 )
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="MobSpawner" type="Position2D" parent="."]
-position = Vector2( 30, -3 )
+[node name="MobSpawnLeft" type="Position2D" parent="."]
+position = Vector2( 34, 182 )
+
+[node name="MobSpawnRight" type="Position2D" parent="."]
+position = Vector2( 393, 182 )
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]

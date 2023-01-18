@@ -36,3 +36,5 @@ func move(_delta, speed, direction):
     velocity = direction.normalized() * speed
 #    owner.move_and_slide(velocity, Vector2(), 5, 2, 0.785398, false)
     owner.move_and_collide(velocity * _delta, false)
+    Global.g_player_position = owner.global_position
+    SignalBus.emit_signal("player_moved", owner.global_position)
