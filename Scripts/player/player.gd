@@ -6,7 +6,7 @@ extends KinematicBody2D
 signal direction_changed(new_direction)
 
 onready var animatedSprite: = $AnimatedSprite
-onready var attackArea: = $AttackArea
+onready var attackArea: = $HitboxPivot
 onready var swordHitSound: = $SwordHitSound
 
 var look_direction = Vector2.RIGHT setget set_look_direction

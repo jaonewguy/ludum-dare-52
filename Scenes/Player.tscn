@@ -55,40 +55,32 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="PlayerStateMachine" type="Node" parent="."]
 script = ExtResource( 5 )
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="PlayerStateMachine"]
 script = ExtResource( 7 )
 
-[node name="Move" type="Node" parent="StateMachine"]
+[node name="Move" type="Node" parent="PlayerStateMachine"]
 script = ExtResource( 8 )
 
-[node name="SlashAttack" type="Node" parent="StateMachine"]
+[node name="SlashAttack" type="Node" parent="PlayerStateMachine"]
 script = ExtResource( 15 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 5 )
 shape = SubResource( 2 )
 
-[node name="AttackArea" type="StaticBody2D" parent="."]
-collision_layer = 4
-collision_mask = 4
-constant_linear_velocity = Vector2( 1500, 350 )
+[node name="HitboxPivot" type="Position2D" parent="."]
 
-[node name="AttackAreaCollision" type="CollisionPolygon2D" parent="AttackArea"]
-polygon = PoolVector2Array( -3, -14, 2, -17, 11, -17, 18, -11, 18, 5, 24, 18, 2, 18, 9, 3, 9, -3 )
-disabled = true
+[node name="AttackAreaDetect" type="Area2D" parent="HitboxPivot"]
 
-[node name="AttackAreaDetect" type="Area2D" parent="AttackArea/AttackAreaCollision"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea/AttackAreaCollision/AttackAreaDetect"]
+[node name="AttackAreaCollision" type="CollisionShape2D" parent="HitboxPivot/AttackAreaDetect"]
 position = Vector2( 15.25, -2 )
 shape = SubResource( 3 )
 
@@ -96,5 +88,5 @@ shape = SubResource( 3 )
 stream = ExtResource( 22 )
 volume_db = -7.008
 
-[connection signal="animation_finished" from="AnimatedSprite" to="StateMachine" method="_on_AnimatedSprite_animation_finished"]
-[connection signal="body_entered" from="AttackArea/AttackAreaCollision/AttackAreaDetect" to="StateMachine/SlashAttack" method="_on_AttackAreaDetect_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite" to="PlayerStateMachine" method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="HitboxPivot/AttackAreaDetect" to="PlayerStateMachine/SlashAttack" method="_on_AttackAreaDetect_body_entered"]

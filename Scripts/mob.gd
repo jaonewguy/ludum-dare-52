@@ -7,9 +7,8 @@ export var MAX_SPEED = 50
 
 var velocity = Vector2.ZERO
 
-#func _ready():
-#    SignalBus.connect("player_moved", self, "_on_player_moved")
-#    player_pos = get_node("res://Scripts/player/player.gd").global_position
+func _ready():
+    print("I'm ready")
 
 func _physics_process(delta):
     _accelerate_towards_point(Global.g_player_position, delta)
@@ -29,3 +28,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 #func _on_player_moved(player_global_position):
 #    player_pos = player_global_position
+
+
+func _on_Hurtbox_area_entered(area):
+    queue_free()

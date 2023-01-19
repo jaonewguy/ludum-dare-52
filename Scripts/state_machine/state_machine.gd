@@ -5,6 +5,8 @@ extends Node
 # and changing the current/active state.
 # See the PlayerV2 scene for an example on how to use it.
 
+# Self-NOTE: I don't really like this for demonstrating just one FSM. But now I can see it working 
+
 signal state_changed(current_state)
 
 # You should set a starting node from the inspector or on the node that inherits
@@ -63,12 +65,6 @@ func _change_state(state_name):
         return
     current_state.exit()
 
-#    if state_name == "previous":
-#        states_stack.pop_front()
-#    else:
-#        states_stack[0] = states_map[state_name]
-#
-#    current_state = states_stack[0]
     current_state = states_map[state_name]
     emit_signal("state_changed", current_state)
 
