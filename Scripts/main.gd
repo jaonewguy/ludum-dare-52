@@ -35,8 +35,7 @@ func _ready():
 func new_game():
     get_tree().paused = false
     $HUD.show_message("Get Ready")
-#    get_tree().call_group("mobs", "queue_free")
-    $BGM.play()
+#    $BGM.play()
 
 func is_game_over():
     return mob_count > score + LOSE_BY_INC

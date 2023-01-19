@@ -19,6 +19,6 @@ func _on_animation_finished(_name):
     
 
 
-func _on_AttackAreaDetect_body_entered(body):
-#    print("Attack detected")
-    owner.swordHitSound.play()
+#func _on_AttackAreaDetect_body_entered(body):
+##    print("Attack detected")
+#    owner.swordHitSound.play()
