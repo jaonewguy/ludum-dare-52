@@ -45,7 +45,7 @@ radius = 7.0
 height = 14.0
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 7.75, 15 )
+extents = Vector2( 50.25, 7 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 3
@@ -70,6 +70,7 @@ script = ExtResource( 15 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -79,11 +80,20 @@ shape = SubResource( 2 )
 [node name="HitboxPivot" type="Position2D" parent="."]
 
 [node name="AttackAreaDetect" type="Area2D" parent="HitboxPivot"]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 8
 
 [node name="AttackAreaCollision" type="CollisionShape2D" parent="HitboxPivot/AttackAreaDetect"]
-position = Vector2( 15.25, -2 )
+position = Vector2( 57.75, 7 )
+shape = SubResource( 3 )
+
+[node name="ImpactDetector" type="Area2D" parent="HitboxPivot"]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="ImpactCollisionArea" type="CollisionShape2D" parent="HitboxPivot/ImpactDetector"]
+position = Vector2( 57.75, 7 )
 shape = SubResource( 3 )
 
 [node name="SwordHitSound" type="AudioStreamPlayer2D" parent="."]
@@ -91,4 +101,4 @@ stream = ExtResource( 22 )
 volume_db = -7.008
 
 [connection signal="animation_finished" from="AnimatedSprite" to="PlayerStateMachine" method="_on_AnimatedSprite_animation_finished"]
-[connection signal="body_entered" from="HitboxPivot/AttackAreaDetect" to="PlayerStateMachine/SlashAttack" method="_on_AttackAreaDetect_body_entered"]
+[connection signal="body_entered" from="HitboxPivot/ImpactDetector" to="PlayerStateMachine/SlashAttack" method="_on_ImpactDetector_body_entered"]

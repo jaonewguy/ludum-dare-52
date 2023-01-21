@@ -65,7 +65,7 @@ func _on_mob_spawned():
     # Try old habits in if check
 #    print(mob_count % UPDATE_DIFFICULTY_MODULO)
     if (UPDATE_DIFFICULTY_START_NUM == mob_count % UPDATE_DIFFICULTY_MODULO) and (time_elapsed - prev_time_update_difficulty > DIFFICULTY_THRESHOLD_MIN_TIME):
-        print(prev_time_update_difficulty)
+        print("Previous update time: ", prev_time_update_difficulty)
         prev_time_update_difficulty = time_elapsed
         _update_difficulty()
     if is_game_over():

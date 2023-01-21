@@ -18,6 +18,8 @@ func _ready():
     # TODO: Find a way to refactor. Original attempt left player with weird floating bug.
     get_node("../HitboxPivot/AttackAreaDetect/AttackAreaCollision").disabled = true
     get_node("../HitboxPivot/AttackAreaDetect/AttackAreaCollision").visible = false
+    get_node("../HitboxPivot/ImpactDetector/ImpactCollisionArea").disabled = true
+    get_node("../HitboxPivot/ImpactDetector/ImpactCollisionArea").visible = false
 #    get_node("../HitboxPivot/AttackAreaDetect/AttackAreaCollision").monitoring = false
 
 
